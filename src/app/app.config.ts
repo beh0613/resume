@@ -1,11 +1,9 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter, withHashLocation } from '@angular/router'; // 1. Import this
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
+    provideRouter(routes, withHashLocation()) // 2. Add it here
   ]
 };
