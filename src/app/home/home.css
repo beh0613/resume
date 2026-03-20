@@ -1,0 +1,319 @@
+/* --- NEW: AVAILABILITY RIBBON --- */
+.availability-ribbon {
+  width: 100%;
+  background: var(--primary); /* Indigo background */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px var(--primary-glow);
+  box-sizing: border-box;
+}
+
+.availability-ribbon b {
+  color: #fbbf24; /* Amber/Yellow for the dates to pop */
+}
+
+.calendar-icon {
+  font-size: 24px;
+}
+
+/* Ensure the Info Card sits tight under the ribbon */
+.info-card {
+  margin-top: 15px !important; /* Overrides previous margin */
+}
+
+/* --- REFINED GREEN STATUS BADGE --- */
+.status-badge-top {
+  position: absolute;
+  top: -15px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #10b981; /* Pure Green */
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* --- THE REST OF YOUR ELITE CSS REMAINS THE SAME --- */
+/* (Keep the body background, profile-avatar, name-title, grid, and scroller code as provided in the previous turn) *//* --- 1. CORE THEME & VARIABLES --- */
+:root {
+  --bg-page: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-info: #f1f5f9;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary: #6366f1;
+  --primary-glow: rgba(99, 102, 241, 0.12);
+  --border: #e2e8f0;
+  --dot-color: #cbd5e1;
+  --scroller-bg: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme='dark'] {
+  --bg-page: #020617;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-info: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #1e293b;
+  --dot-color: #1e293b;
+  --primary-glow: rgba(99, 102, 241, 0.4);
+  --scroller-bg: rgba(15, 23, 42, 0.9);
+}
+
+/* --- 2. GLOBAL RESET & BACKGROUND --- */
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+  background-size: 45px 45px;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  transition: all 0.4s ease;
+  overflow-x: hidden;
+}
+
+.glow-blob {
+  position: fixed;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+.blob-1 { top: -10%; right: -5%; }
+.blob-2 { bottom: -10%; left: -5%; }
+
+/* --- 3. THE LAYOUT --- */
+.page-wrapper {
+  width: 100%;
+  max-width: 1400px; /* Filling the screen */
+  margin: 0 auto;
+  padding: 80px 0 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 4. PROFILE HEADER (200px Photo Upgrade) --- */
+.profile-header {
+  width: 100%;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-avatar-wrapper { position: relative; margin-bottom: 35px; }
+
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 8px solid var(--bg-card);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.1) rotate(3deg);
+  border-color: var(--primary);
+}
+
+.status-badge-top {
+  position: absolute;
+  top: -15px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #10b981;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.pulse-green {
+  width: 10px; height: 10px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(16, 185, 129, 0.4);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* --- 5. BOLD TYPOGRAPHY --- */
+.name-title {
+  font-size: clamp(45px, 8vw, 75px);
+  font-weight: 950;
+  letter-spacing: -4px;
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 15px 0 5px;
+}
+
+.subtitle {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.quick-stats {
+  display: flex; gap: 50px;
+  background: var(--bg-card);
+  padding: 22px 65px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+  margin-top: 40px;
+}
+
+.stat-item b { font-size: 34px; color: var(--primary); display: block; }
+.stat-item span { font-size: 12px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; }
+
+/* --- 6. HERO INFO CARD --- */
+.info-card {
+  width: 100%;
+  background: var(--bg-card);
+  padding: clamp(40px, 5vw, 65px);
+  border-radius: 45px;
+  border: 1px solid var(--border);
+  text-align: left;
+  margin-top: 40px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card h3 { font-size: 32px; color: var(--primary); font-weight: 900; margin-bottom: 18px; }
+.info-card p { font-size: 26px; line-height: 1.6; color: var(--text-main); }
+
+/* --- 7. THE SNAP-GRID (4 or 2 Columns) --- */
+.dashboard-grid {
+  display: grid;
+  width: 100%;
+  gap: 35px;
+  margin: 60px 0;
+  grid-template-columns: repeat(2, 1fr); /* Half screen */
+}
+
+@media (min-width: 1200px) {
+  .dashboard-grid { grid-template-columns: repeat(4, 1fr); } /* Full screen row */
+}
+
+@media (max-width: 650px) { .dashboard-grid { grid-template-columns: 1fr; } }
+
+.nav-card {
+  background: var(--bg-card);
+  padding: 50px 25px;
+  border-radius: 40px;
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  cursor: pointer;
+  position: relative; overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-align: center;
+}
+
+/* Magic Line Hover Effect */
+.nav-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  transform: scaleX(0);
+  transition: transform 0.6s ease;
+}
+
+.nav-card:hover::before { transform: scaleX(1); }
+
+.nav-card:hover {
+  transform: translateY(-18px);
+  border-color: var(--primary);
+  box-shadow: 0 30px 70px -15px var(--primary-glow);
+}
+
+.card-icon {
+  font-size: 55px;
+  width: 100px; height: 100px;
+  background: var(--bg-info);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 28px;
+  margin-bottom: 5px;
+}
+
+.card-text h3 { font-size: 1.6rem; font-weight: 850; margin-bottom: 6px; }
+.card-text p { font-size: 1.1rem; color: var(--text-muted); margin: 0; }
+
+.card-glow {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at center, var(--primary-glow) 0%, transparent 70%);
+  opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+}
+.nav-card:hover .card-glow { opacity: 1; }
+
+/* --- 8. STAGGERED ENTRANCE --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-up, .nav-card { animation: fadeInUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.anim-1 { animation-delay: 0.1s; }
+.anim-2 { animation-delay: 0.2s; }
+.anim-3 { animation-delay: 0.3s; }
+.anim-4 { animation-delay: 0.4s; }
+
+/* --- 9. TECH SCROLLER --- */
+.footer-scroller-fixed {
+  position: fixed; bottom: 0; left: 0; width: 100vw;
+  background: var(--scroller-bg); backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border); padding: 25px 0; z-index: 1000;
+}
+
+.scroll-track {
+  display: flex; width: max-content; animation: scroll-tech 50s linear infinite;
+}
+
+.scroll-track span {
+  padding: 0 80px; font-size: 16px; font-weight: 900;
+  color: var(--text-muted); text-transform: uppercase; letter-spacing: 6px;
+}
+
+@keyframes scroll-tech { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* --- 10. THEME SWITCH --- */
+.theme-switch {
+  position: fixed; top: 90px; right: 40px;
+  width: 65px; height: 65px; border-radius: 50%;
+  background: var(--bg-card); border: 1px solid var(--border);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 28px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); z-index: 2000;
+  transition: all 0.3s ease;
+}
+.theme-switch:hover { transform: scale(1.1) rotate(15deg); }

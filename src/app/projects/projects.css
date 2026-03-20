@@ -1,0 +1,99 @@
+/* --- 1. EXPANSIVE PAGE WRAPPER --- */
+.page-wrapper {
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 80px 0 160px;
+  position: relative;
+}
+
+.section-header { text-align: center; margin-bottom: 80px; }
+
+.title-huge {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 950;
+  letter-spacing: -3px;
+  background: linear-gradient(135deg, var(--text-main) 20%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.subtitle-large { font-size: 24px; color: var(--text-muted); max-width: 800px; margin: 0 auto; }
+
+/* --- 2. PROJECT CARDS --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+}
+
+.p-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border-radius: 40px;
+  padding: 60px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+}
+
+.p-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--primary);
+  box-shadow: 0 40px 80px var(--primary-glow);
+}
+
+.fyp-highlight { border-top: 10px solid #10b981; }
+
+/* --- 3. TYPOGRAPHY (BIGGER) --- */
+.p-header h3 { font-size: 36px; font-weight: 900; color: var(--text-main); margin-top: 10px; }
+.p-category { font-size: 14px; font-weight: 800; color: var(--primary); letter-spacing: 2px; }
+.p-desc { font-size: 22px; line-height: 1.6; color: var(--text-main); margin-bottom: 30px; }
+.p-bullets-large { font-size: 18px; color: var(--text-muted); line-height: 1.8; }
+.p-bullets-large li { margin-bottom: 12px; }
+
+/* --- 4. GITHUB STYLE BUTTON (NO DARK) --- */
+.view-btn-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* Indigo to Purple */
+  color: white;
+  text-decoration: none;
+  padding: 22px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 20px;
+  transition: all 0.4s ease;
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+}
+
+.view-btn-github:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.4);
+  filter: brightness(1.1);
+}
+
+.btn-icon { font-size: 24px; }
+
+/* Tag Styling */
+.tag-group-large { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.p-tag {
+  background: var(--bg-info);
+  color: var(--text-muted);
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* --- 5. RESPONSIVE --- */
+@media (max-width: 900px) {
+  .project-grid { grid-template-columns: 1fr; }
+  .p-card { padding: 40px; }
+}

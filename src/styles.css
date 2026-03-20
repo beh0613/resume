@@ -1,0 +1,64 @@
+/* Import a modern, highly readable font */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Standard Font Sizes */
+  --fs-h1: 38px;
+  --fs-h2: 28px;
+  --fs-h3: 22px;
+  --fs-h4: 18px;
+  --fs-body: 15px;
+  --fs-small: 13px;
+
+  /* Standard Colors */
+  --primary: #6366f1; /* Indigo */
+  --success: #16a34a; /* Green */
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--fs-body);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-main);
+  font-weight: 800;
+  margin: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: var(--scroller-bg);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+  width: 100%; /* Fills the width */
+}
+
+.nav-container {
+  /* Using 92% width with NO strict max-width allows it to fill the screen like your example */
+  width: 92%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* On mobile, we reduce the gaps so nothing overflows */
+@media (max-width: 768px) {
+  .nav-container { width: 95%; }
+  .nav-links { gap: 15px; }
+  .nav-links a { font-size: 0.9rem; }
+}

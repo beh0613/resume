@@ -1,0 +1,37 @@
+name: Build and Deploy Resume
+
+on:
+  push:
+    branches:
+      - main  # or 'master' if that is your default branch
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Match your local version
+
+      - name: Install Dependencies 📦
+        run: npm ci
+
+      - name: Build Angular App 🏗️
+        run: npx ng build --configuration production --base-href /resume/
+
+      - name: Prepare 404 Page (for SPA routing) 🛠️
+        run: cp dist/resume/browser/index.html dist/resume/browser/404.html
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/resume/browser # Path to your built files
+          branch: gh-pages

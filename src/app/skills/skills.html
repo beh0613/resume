@@ -1,0 +1,26 @@
+<div class="skills-page">
+  <div class="blob-1"></div>
+  <div class="blob-2"></div>
+
+  <header class="section-header">
+    <div class="status-chip">Available for Internship</div>
+    <h1 class="title">Technical Stack</h1>
+    <p class="subtitle">A curated collection of technologies I use to build robust, scalable software solutions.</p>
+  </header>
+
+  <div class="bento-grid">
+    <div class="category-card" *ngFor="let cat of skillCategories">
+      <div class="card-header">
+        <h3 class="category-label">{{ cat.title }}</h3>
+        <span class="count-badge">{{ cat.items.length }} Skills</span>
+      </div>
+
+      <div class="tags-wrapper">
+        <div class="skill-tag" *ngFor="let skill of cat.items">
+          <span class="skill-dot"></span>
+          {{ skill }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
