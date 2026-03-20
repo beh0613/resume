@@ -27,8 +27,7 @@ jobs:
       - name: Build Angular App 🏗️
         run: npx ng build --configuration production --base-href /resume/
 
-      - name: Prepare 404 Page (for SPA routing) 🛠️
-        run: cp dist/resume/index.html dist/resume/404.html
+
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
