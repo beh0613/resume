@@ -28,10 +28,10 @@ jobs:
         run: npx ng build --configuration production --base-href /resume/
 
       - name: Prepare 404 Page (for SPA routing) 🛠️
-        run: cp dist/resume/browser/index.html dist/resume/browser/404.html
+        run: cp dist/resume/index.html dist/resume/404.html
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/resume/browser # Path to your built files
-          branch: gh-pages
+                folder: dist/resume # Updated path
+                branch: gh-pages
