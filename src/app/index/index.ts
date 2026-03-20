@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.html',
-  styleUrls: ['./home.css']
+  templateUrl: './index.html',
+  styleUrls: ['./index.css']
 })
 export class Home{
   isDarkMode = false;
