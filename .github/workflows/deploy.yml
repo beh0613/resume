@@ -32,5 +32,5 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-                folder: dist/resume # Updated path
+                folder: dist/resume-app # Updated path
                 branch: gh-pages
