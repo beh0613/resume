@@ -27,10 +27,8 @@ jobs:
       - name: Build Angular App 🏗️
         run: npx ng build --configuration production --base-href /resume/
 
-
-
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-                folder: dist/resume-app # Updated path
-                branch: gh-pages
+          folder: dist/resume-app/browser # Note the /browser at the end
+          branch: gh-pages
