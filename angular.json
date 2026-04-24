@@ -17,7 +17,7 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/resume-app",
-            "index": "src/app/index/index.html",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],

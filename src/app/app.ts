@@ -11,12 +11,7 @@ import { CommonModule } from '@angular/common'; // Add CommonModule for conditio
 })
 export class AppComponent {
   title = 'portfolio';
-  isDarkMode = false;
 
-  toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-    const theme = this.isDarkMode ? 'dark' : 'light';
-    // This applies the theme to the entire <html> or <body> tag
-    document.documentElement.setAttribute('data-theme', theme);
-  }
+
+
 }

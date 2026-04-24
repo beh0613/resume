@@ -1,42 +1,47 @@
 <nav class="navbar">
   <div class="nav-container">
-    <a routerLink="./" class="logo">BEH<span>.</span></a>
 
+    <!-- Logo -->
+    <a routerLink="/" class="logo">BEH<span>.</span></a>
+
+    <!-- Right Section -->
     <div class="nav-right">
+
       <div class="nav-links">
+
         <div class="nav-item">
-          <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
           <span class="active-dot"></span>
         </div>
 
         <div class="nav-item">
-          <a routerLink="about" routerLinkActive="active">About</a>
+          <a routerLink="/about" routerLinkActive="active">About</a>
           <span class="active-dot"></span>
         </div>
 
         <div class="nav-item">
-          <a routerLink="skills" routerLinkActive="active">Skills</a>
+          <a routerLink="/skills" routerLinkActive="active">Skills</a>
           <span class="active-dot"></span>
         </div>
 
         <div class="nav-item">
-          <a routerLink="projects" routerLinkActive="active">Projects</a>
+          <a routerLink="/projects" routerLinkActive="active">Projects</a>
           <span class="active-dot"></span>
         </div>
 
         <div class="nav-item">
-          <a routerLink="contact" routerLinkActive="active">Contact</a>
+          <a routerLink="/contact" routerLinkActive="active">Contact</a>
           <span class="active-dot"></span>
         </div>
       </div>
 
-      <button class="nav-theme-toggle" (click)="toggleTheme()">
-        {{ isDarkMode ? '☀️' : '🌙' }}
-      </button>
+
+
     </div>
   </div>
 </nav>
 
+<!-- Main Content -->
 <div class="main-wrapper">
   <router-outlet></router-outlet>
 </div>
